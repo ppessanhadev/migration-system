@@ -1,6 +1,7 @@
 # Migrations system
 
 O intuíto desse repositório é para validação do uso de um sistema de migrations para versionamento do banco de dados voltado para o mongodb.
+
 Para a utilização, fiz uso da biblioteca [mongo-migrate-ts](https://www.npmjs.com/package/mongo-migrate-ts) e automatizei alguns processos com comandos através do `package.json`, dentre eles estão:
 
 - **npm run migration:up**
