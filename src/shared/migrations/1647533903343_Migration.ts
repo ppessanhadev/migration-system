@@ -1,4 +1,4 @@
-import { Collection, Db } from 'mongodb'
+import { Collection, Db } from 'mongodb';
 import { MigrationInterface } from 'mongo-migrate-ts';
 
 export class Migration1647533903343 implements MigrationInterface {
