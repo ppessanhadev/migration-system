@@ -18,5 +18,5 @@ jobs:
           prefix: SSM_
           decryption: true
 
-    name: Verify env file
-    run: cat .env
+      - name: Verify env file
+        run: cat .env
