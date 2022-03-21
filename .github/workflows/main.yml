@@ -17,8 +17,10 @@ jobs:
         with:
           ssm-path: /dev_api/api_pension/mongo/uri
           prefix: SSM_
-          decryption: true
+
+      - name: Setup migration environment variable
       - run: echo I_AM=$SSM_uri >> .env
+      - run: cat .env
 
       # - name: Set up Node for packages and migrations
       #   uses: actions/setup-node@v2
