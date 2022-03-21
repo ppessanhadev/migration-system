@@ -11,7 +11,8 @@
     "migration:up": "ts-node mongo-migrate.ts up",
     "migration:down": "ts-node mongo-migrate.ts down --all",
     "migration:down-last": "ts-node mongo-migrate.ts down --last",
-    "migration:status": "ts-node mongo-migrate.ts status"
+    "migration:status": "ts-node mongo-migrate.ts status",
+    "test": "ts-node print.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -16,5 +16,13 @@ jobs:
           ssm-path: /test/first
           prefix: SSM_
           decryption: true
-      - run: echo $SSM_first >> .env
+      - run: echo I_AM=$SSM_first >> .env
       - run: cat .env
+
+      - name: Set up Node for packages and migrations
+        uses: actions/checkout@v2
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm run test
