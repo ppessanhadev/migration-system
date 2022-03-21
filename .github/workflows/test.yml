@@ -1,0 +1,20 @@
+name: Test action
+
+on: push
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: deptno/action-aws-ssm-to-dotenv@v1.3.1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-2
+        with:
+          ssm-path: /test/first
+          output: .env
+          prefix: SSM_
+          decryption: true
+        run: cat .env
