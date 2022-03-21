@@ -17,4 +17,5 @@ jobs:
           output: .env
           prefix: SSM_
           decryption: true
-      - run: echo "cat .env"
+      - run: echo "TEST_ENVIRONMENT=TRUE" >> .env
+      - run: cat .env
