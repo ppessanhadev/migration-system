@@ -18,3 +18,4 @@ jobs:
           prefix: SSM_
           decryption: true
       - run: cat .env
+      - run: cat test.txt
