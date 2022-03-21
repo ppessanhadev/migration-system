@@ -18,7 +18,7 @@ jobs:
         with:
           ssm-path: /dev_api/api_pension/mongo/uri
           prefix: SSM_
-      - with:
+        with:
           ssm-path: /test/first
           prefix: SSM_
 
