@@ -16,10 +16,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-2
         with:
-          ssm-path: /dev_api/api_pension/mongo/uri
-          prefix: SSM_
-        with:
-          ssm-path: /test/first
+          ssm-path: [/dev_api/api_pension/mongo/uri, /test/first]
           prefix: SSM_
 
       - name: Setup migration variable
