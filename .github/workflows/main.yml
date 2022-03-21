@@ -16,5 +16,5 @@ jobs:
           ssm-path: /test/first
           prefix: SSM_
           decryption: true
-      - run: echo "TEST_ENVIRONMENT=TRUE" >> .env
+      - run: echo $SSM_first >> .env
       - run: cat .env
