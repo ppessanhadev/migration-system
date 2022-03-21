@@ -19,7 +19,7 @@ jobs:
           prefix: SSM_
 
       - name: Setup migration environment variable
-      - run: echo I_AM=$SSM_uri >> .env
+        run: echo I_AM=$SSM_uri >> .env
       - run: cat .env
 
       # - name: Set up Node for packages and migrations
