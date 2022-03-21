@@ -9,14 +9,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Get migration environment variable with ssm
+      - name: Get migration environment variable uri
         uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.2
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-2
         with:
-          ssm-path: [/dev_api/api_pension/mongo/uri, /test/first]
+          ssm-path: /dev_api/api_pension/mongo/uri
+          prefix: SSM_
+
+      - name: Get migration environment variable first
+        uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.2
+        with:
+          ssm-path: /test/first
           prefix: SSM_
 
       - name: Setup migration variable
