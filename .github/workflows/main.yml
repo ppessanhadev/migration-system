@@ -17,7 +17,9 @@ jobs:
           AWS_DEFAULT_REGION: us-east-2
         with:
           ssm-path: /dev_api/api_pension/mongo/uri
-        - ssm-path: /test/first
+          prefix: SSM_
+      - with:
+          ssm-path: /test/first
           prefix: SSM_
 
       - name: Setup migration variable
