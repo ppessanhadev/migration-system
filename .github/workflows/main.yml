@@ -6,6 +6,7 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+  PREFIX: ${{ secrets.AWS_PREFIX }}
 
 jobs:
   test:
@@ -14,11 +15,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Get migration environment variable uri
-        uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.2
-        with:
-          ssm-path: /dev_api/api_pension/mongo/uri
-          prefix: SSM_
+      # - name: Get migration environment variable uri
+      #   uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.2
+      #   with:
+      #     ssm-path: /dev_api/api_pension/mongo/uri
+      #     prefix: SSM_
 
       - name: Get migration environment variable first
         uses: Bardavon-Health/actions-aws-ssm-params-to-env@v1.2
@@ -27,8 +28,11 @@ jobs:
           prefix: SSM_
 
       - name: Setup migration variable
-        run: echo I_AM=$SSM_uri >> .env && echo FIRST=$SSM_first >> .env
+        run: echo $SSM_first >> .env
       - run: cat .env
+
+      - name: Show seted value
+        run: echo $SSM_first
 
       # - name: Set up Node for packages and migrations
       #   uses: actions/setup-node@v2
